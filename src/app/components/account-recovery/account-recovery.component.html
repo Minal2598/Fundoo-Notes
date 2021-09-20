@@ -1,0 +1,38 @@
+
+<div class="main-name">
+     <form  [formGroup]="accountrecoveryForm">
+        <div class="logo">
+        <p>
+            <span class="letter1">F</span>
+            <span class="letter2">u</span>
+            <span class="letter3">n</span>
+            <span class="letter4">d</span>
+            <span class="letter5">o</span>
+            <span class="letter6">o</span>
+        </p>
+        </div>
+        <h1>Account Recovery</h1>
+        <h4>Forgot Password</h4>
+        
+        <div class="form-group">
+            <mat-form-field appearance="outline">
+            <mat-label>email</mat-label>
+            <input matInput  formControlName="email" placeholder="enter your email">
+            <mat-error>Password is required !</mat-error>
+           </mat-form-field>
+        </div>
+        <!-- <div class="check-Box">
+            <mat-checkbox class="example-margin">show Password</mat-checkbox>
+        </div> -->
+       
+        <div class="footer">
+            <div class="text">
+            <p>Try another way</p>
+            </div>
+            <div class="button">
+                <button mat-raised-button color="primary"class="next-button">Next</button>
+            </div>
+        </div>
+    </form>
+</div>  
+

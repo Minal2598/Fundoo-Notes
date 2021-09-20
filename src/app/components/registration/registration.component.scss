@@ -1,0 +1,166 @@
+.main-container{
+    width: 55vw;
+    height: 100vh;
+  
+    background: white;
+    display: flex;
+    // margin:2cm 7.5cm;
+    // padding:1cm;
+    // position: absolute;
+    // box-sizing: border-box;
+    // margin-bottom: 3cm;
+  
+}
+// .form{
+//     padding: 1cm;
+// }
+.logo .letter1{
+    color: blue;
+    font-size: 2em;
+}
+.logo .letter2{
+    color: red;
+    font-size: 2em;
+}
+.logo .letter3{
+    color:yellow;
+    font-size: 2em;
+}
+.logo .letter4{
+    color: blue;
+    font-size: 2em;
+}
+.logo .letter5{
+    color:green;
+    font-size: 2em;
+}
+.logo .letter6{
+    color:red;
+    font-size: 2em;
+}
+
+
+// .placewidth{
+//     width: 424px;
+// }
+
+
+// .container{
+//     display: flex;
+//     justify-content: space-between;
+    
+// }
+
+// .container2{
+//     margin-left: 10px;
+    
+// }
+
+
+//  .images{
+    
+//     position: absolute;
+//     height: 50%;
+//     width: 50%;
+//     z-index: 1;
+//     right: 0%;
+//     top : 15%;
+//     margin-left:-20px;
+//     margin-top: 0;
+//     height: 5cm;
+//     width: 7cm;
+//       transform: translate(-550px,-30px);
+// }
+
+
+
+.flex2 {
+    display: flex;
+    justify-content: space-between;
+    width: 45%;
+}
+
+.container3{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 5px 0px 0px 25px;
+    padding-left: 0%;
+    margin-left: 1%;
+}
+
+h4{
+    color: blue;
+    margin-right:1.9cm;
+  
+}
+h5 {
+    
+    color: #00000091;  
+ 
+}
+
+
+.input {
+    width: 180px;
+    height: 30px;
+    border: 1px solid #00000075;
+    border-radius: 5px;
+    margin-left: auto;
+}
+.img-div{
+   margin: auto; 
+   
+}
+
+.sign {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    color: white;
+    border-radius: 10px;
+    padding: 40px 0px 0px 0px;
+    // border-top: 0px;
+    margin-bottom: 0.5cm;
+   
+    height: 0.5cm;
+    top: 0;
+}
+
+.button {
+    background-color: #4688f1;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 5px 35px;
+    cursor: pointer;
+    height: 40px;
+    width: auto;
+    font-weight: 900;
+    margin-bottom: 3cm;
+
+}
+
+.text {
+    display: flex;
+    color: #3566b8;
+    padding: 0px 172px 0px 34px;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 18px;
+    margin-bottom: 3cm;
+   margin-left: -1cm;
+    border-color: white;
+    background-color: white;
+    
+}
+
+.Fundoo-Text{
+    color: black;
+    opacity: 0.8;
+    text-align: center;
+    -webkit-text-stroke: thin;
+    margin-left: -20px;
+    margin-bottom: 0px;
+}
+
