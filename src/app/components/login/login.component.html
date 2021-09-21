@@ -19,9 +19,9 @@
                 <mat-error>valid email or phone is required !</mat-error>
             </mat-form-field>
         </div>
-        <div class="header1">
+        <!-- <div class="header1">
             <h5 routerLink="/account-recovery">Forgot password?</h5>
-        </div>
+        </div> -->
 
         <div class="form-group1">
             <mat-form-field appearance="outline">
@@ -31,7 +31,7 @@
             </mat-form-field>
         </div>
         <div class="header1">
-            <h5 routerLink="/reset-password">Reset password?</h5>
+            <h5 routerLink="/account-recovery">Forgot password?</h5>
         </div>
         <div class="content1">
             <p>Not your computer? Use Guest mode to sign in privately.</p>
@@ -44,7 +44,7 @@
                 <p routerLink="/registration">create account</p>
             </div>
             <div class="button">
-                <button mat-raised-button color="primary" class="next-button">Next</button>
+                <button (click)="onSubmit()"mat-raised-button color="primary" class="next-button">Next</button>
             </div>
         </div>
     </form>

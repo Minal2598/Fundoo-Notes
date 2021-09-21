@@ -34,7 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatCheckboxModule,
     ReactiveFormsModule, 
     FlexLayoutModule ,
-    HttpClientModule,
+    HttpClientModule
   
   ],
   providers: [],

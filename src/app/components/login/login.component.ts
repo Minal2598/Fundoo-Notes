@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from 'src/app/user-service/user.service';
+import { UserService } from '../../services/user-service/user.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,7 @@ import { UserService } from 'src/app/user-service/user.service';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup 
 
-  constructor(private formBuilder: FormBuilder,private userService:UserService) { }
+  constructor(private formBuilder: FormBuilder, private userService:UserService ) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -22,6 +22,24 @@ export class LoginComponent implements OnInit {
        
   });
 
+  }
+  onSubmit(){
+    console.log("onsubmit function is calling" ,this.loginForm.value);
+    let request={
+     
+      email:this.loginForm.value.email,
+      password:this.loginForm.value.password,
+      service:"advance"
+
+    }
+    console.log(request)
+    this.userService.loginUser(request).subscribe((response:any)=>{
+      console.log(response);
+
+    }, (error:any)=> {
+    console.log(error);
+
+  })
   }
 // convenience getter for easy access to form fields
 get f() { return this.loginForm.controls; }

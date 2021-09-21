@@ -44,7 +44,7 @@
                     <mat-form-field appearance="outline">
                         <mat-label>password</mat-label>
                         <input type="password" matInput placeholder="password" formControlName="password">
-                        <mat-error>First Name is required !</mat-error>
+                        <mat-error>password is required !</mat-error>
                     </mat-form-field>
 
                 </div>
@@ -52,7 +52,7 @@
                     <mat-form-field appearance="outline">
                         <mat-label>confirm password</mat-label>
                         <input type="password" matInput placeholder="confirmPassword" formControlName="confirmPassword">
-                        <mat-error>First Name is required !</mat-error>
+                        <mat-error>password is required !</mat-error>
                     </mat-form-field>
                 </div>
 
@@ -65,7 +65,7 @@
             <div class="sign">
                 <p class="text" routerLink="/login"> sign in instead </p>
                 <!-- <button mat-button class="button1" routerLink="/login">sign in instead</button> -->
-                <button type="submit" mat-raised-button color="primary" class="button">Next</button>
+                <button type="submit" (click)="onSubmit()"  mat-raised-button color="primary" class="button">Next</button>
             </div>
 
 
