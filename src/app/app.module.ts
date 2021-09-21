@@ -15,6 +15,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AccountRecoveryComponent } from './components/account-recovery/account-recovery.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { HttpClientModule } from '@angular/common/http';
+import {  MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatCheckboxModule,
     ReactiveFormsModule, 
     FlexLayoutModule ,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   
   ],
   providers: [],

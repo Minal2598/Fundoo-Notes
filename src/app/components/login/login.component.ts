@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/user-service/user.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { UserService } from '../../services/user-service/user.service';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup 
 
-  constructor(private formBuilder: FormBuilder, private userService:UserService ) { }
+  constructor(private formBuilder: FormBuilder, private userService:UserService,private snackBar:MatSnackBar ) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -29,15 +30,21 @@ export class LoginComponent implements OnInit {
      
       email:this.loginForm.value.email,
       password:this.loginForm.value.password,
-      service:"advance"
+      
 
     }
     console.log(request)
     this.userService.loginUser(request).subscribe((response:any)=>{
       console.log(response);
+      this.snackBar.open("Login succfully ", ' ', {
+        duration: 1000,
+     });
 
     }, (error:any)=> {
     console.log(error);
+    this.snackBar.open("Login failed ", ' ', {
+      duration: 1000,
+   });
 
   })
   }

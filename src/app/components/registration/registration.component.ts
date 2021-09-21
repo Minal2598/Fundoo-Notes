@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/user-service/user.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class RegistrationComponent implements OnInit {
   registerForm!: FormGroup 
 
 
-  constructor(private formBuilder: FormBuilder, private userService:UserService) { }
+  constructor(private formBuilder: FormBuilder, private userService:UserService, private snackBar:MatSnackBar) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -41,12 +42,18 @@ export class RegistrationComponent implements OnInit {
     console.log(request)
     this.userService.registerUser(request).subscribe((response:any)=>{
       console.log(response);
-
+      this.snackBar.open("registratered succfully ", ' ', {
+        duration: 1000,
+     });
+    
     }, (error:any)=> {
-    console.log(error);
-
-  })
-  }
+      console.log(error);
+      this.snackBar.open("Login failed ", ' ', {
+        duration: 1000,
+     });
+  
+    })
+    }
 // convenience getter for easy access to form fields
 get f() { return this.registerForm.controls; }
 

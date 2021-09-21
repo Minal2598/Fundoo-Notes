@@ -16,8 +16,8 @@ export class AccountRecoveryComponent implements OnInit {
     this. accountrecoveryForm = this.formBuilder.group({
        
         
-        password: ['', [Validators.required, Validators.minLength(6)]],
-        confirmPassword: ['', Validators.required]
+      email: ['', [Validators.required, Validators.email]],
+      
     
        
   });
@@ -29,7 +29,7 @@ export class AccountRecoveryComponent implements OnInit {
      
      
       email:this.accountrecoveryForm.value.email,
-      service:"advance"
+     
 
     }
     console.log(request)

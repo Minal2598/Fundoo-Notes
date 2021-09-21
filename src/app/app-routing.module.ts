@@ -9,7 +9,7 @@ const routes: Routes = [
   {path:'registration',component:RegistrationComponent},
   {path:'login',component:LoginComponent},
   {path:'account-recovery',component:AccountRecoveryComponent},
-  {path:'reset-password',component:ResetPasswordComponent}
+  {path:'resetpassword/:token',component:ResetPasswordComponent}
   
   
 

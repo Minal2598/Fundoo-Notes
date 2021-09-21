@@ -16,7 +16,7 @@ export class UserService {
     console.log(requestdata);
     return this.httpService.post('user/login',requestdata)
   }
-  resetpasswordUser(requestdata:any){
+  resetpasswordUser(requestdata:any, token:any){
     console.log(requestdata);
     return this.httpService.post('user/reset-password',requestdata)
   }
