@@ -16,6 +16,7 @@ import { AccountRecoveryComponent } from './components/account-recovery/account-
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { HttpClientModule } from '@angular/common/http';
 import {  MatSnackBarModule } from '@angular/material/snack-bar';
+import { DashboardComponent } from './components/Dashboard/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {  MatSnackBarModule } from '@angular/material/snack-bar';
     RegistrationComponent,
     LoginComponent,
     AccountRecoveryComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
