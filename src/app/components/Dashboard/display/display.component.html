@@ -1,0 +1,14 @@
+<div class="Card" fxLayout="row wrap" fxLayoutGap="15px">
+    <mat-card  style="width: 240px; height: 200px;" *ngFor='let note of NotesArray'>
+        <div>
+            {{note.title}}
+        </div>
+        <div>
+            {{note.description}}
+        </div>
+        <app-icons></app-icons>
+    </mat-card>
+   
+
+   
+</div>

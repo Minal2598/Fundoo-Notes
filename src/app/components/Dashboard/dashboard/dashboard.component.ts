@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
+import {MediaMatcher} from '@angular/cdk/layout';
+
+
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  mobileQuery: MediaQueryList;
+
+  fillerNav = Array.from({length: 5}, (_, i) => `Nav Item ${i + 1}`);
+
+  fillerContent = Array.from({length: 5}, () =>
+     '' );
+
+  private _mobileQueryListener: () => void;
+
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
+
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
 
   ngOnInit(): void {
   }

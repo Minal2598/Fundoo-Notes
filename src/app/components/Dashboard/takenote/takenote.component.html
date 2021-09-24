@@ -1,0 +1,14 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+
+    <mat-card style="width:400px;">
+        <div (click)="onClick()" *ngIf="!show||show" >
+          Title
+        </div>
+        <div *ngIf="show">
+          Take a note...
+         <app-icons></app-icons>
+          <div (click)="createNote()">close</div>
+        </div>
+      
+      </mat-card>
+    </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/user-service/user.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-account-recovery',
@@ -10,7 +11,7 @@ import { UserService } from '../../services/user-service/user.service';
 export class AccountRecoveryComponent implements OnInit {
   accountrecoveryForm!: FormGroup 
 
-  constructor(private formBuilder: FormBuilder, private userService:UserService) { }
+  constructor(private formBuilder: FormBuilder, private userService:UserService,private snackBar:MatSnackBar) { }
 
   ngOnInit() {
     this. accountrecoveryForm = this.formBuilder.group({
@@ -35,9 +36,15 @@ export class AccountRecoveryComponent implements OnInit {
     console.log(request)
     this.userService.accountrecoveryUser(request).subscribe((response:any)=>{
       console.log(response);
+      this.snackBar.open("Login succfully ", ' ', {
+        duration: 1000,
+     });
 
     }, (error:any)=> {
     console.log(error);
+    this.snackBar.open("Login succfully ", ' ', {
+      duration: 1000,
+   });
 
   })
   }

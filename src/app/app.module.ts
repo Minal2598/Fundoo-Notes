@@ -17,6 +17,15 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { HttpClientModule } from '@angular/common/http';
 import {  MatSnackBarModule } from '@angular/material/snack-bar';
 import { DashboardComponent } from './components/Dashboard/dashboard/dashboard.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list';
+import { GetallnotesComponent } from './components/Dashboard/getallnotes/getallnotes.component';
+import { TakenoteComponent } from './components/Dashboard/takenote/takenote.component';
+import { DisplayComponent } from './components/Dashboard/display/display.component';
+import {MatCardModule} from '@angular/material/card';
+import { IconsComponent } from './components/Dashboard/icons/icons/icons.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +34,11 @@ import { DashboardComponent } from './components/Dashboard/dashboard/dashboard.c
     LoginComponent,
     AccountRecoveryComponent,
     ResetPasswordComponent,
-    DashboardComponent
+    DashboardComponent,
+    GetallnotesComponent,
+    TakenoteComponent,
+    DisplayComponent,
+    IconsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +51,11 @@ import { DashboardComponent } from './components/Dashboard/dashboard/dashboard.c
     ReactiveFormsModule, 
     FlexLayoutModule ,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatCardModule
   
   ],
   providers: [],
