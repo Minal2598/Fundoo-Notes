@@ -1,44 +1,128 @@
 .example-container {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-  
-  .example-is-mobile .example-toolbar {
-    position: fixed;
-    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
-    z-index: 2;
-  }
-  
-  h1.example-app-name {
-    margin-left: 8px;
-  }
-  
-  .example-sidenav-container {
-    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
-       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
-    flex: 1;
-  }
-  
-  .example-is-mobile .example-sidenav-container {
-    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
-       `<body>` to be our scrolling element for mobile layouts. */
-    flex: 1 0 auto;
-  }
-  .search-bar input[type=text] {
-    float: right;
-    padding: 6px;
-    margin-top: 8px;
-    margin-right: 16px;
-    border: none;
-    font-size: 17px;
-  }
-  .search:hover, .search:focus {
-    border: 1.5px solid #009688 !important;
-    background-color: white !important;
-  }
- 
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  // height: 100%;
+}
+
+.example-is-mobile .example-toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+h1.example-app-name {
+  margin-left: 8px;
+}
+
+.example-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+}
+
+.example-is-mobile .example-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}
+// .search-bar input[type=text] {
+//   float: right;
+//   padding: 6px;
+//   margin-top: 8px;
+//   margin-right: 16px;
+//   border: none;
+//   font-size: 17px;
+// }
+// .search:hover, .search:focus {
+//   border: 1.5px solid #009688 !important;
+//   background-color: white !important;
+// }
+
+.search{
+  // border: 1px solid rgb(187, 182, 182);
+  margin-left: 70px;
+
+  border-radius: 10px;
+  width: 720px;
+  background-color:#e5e9e7a8 ;
+  height: 45px;
+  box-shadow: 10px 5px 5px rgb(228, 222, 222);
+
+}
+// .search-bar{
+//   align-items: center;
+//   width: 630px;
+//   height: 45px;
+//   margin-left:13px;
+//   border-radius: 10px;
+//  background-color:#ebeeeda8  ;
+//   // background-color:red;
+//   border:none;  
+// }
+// .search .search-icons{
+
+//   height: 45px;
+//   font-size: 20px;
+// }
+// .search img:focus{
+//   border:none;
+//   // background-color:#e5e9e7a8 ;
+
+// }
+// .search .search-bar:focus{
+//   outline: none;
+// }
+
+
+// .search-container {
+// margin-left: 40px;
+// width: 450px;
+// }
+
+// input[type=text] {
+// padding: 6px;
+// margin-top: 8px;
+// font-size: 17px;
+// border: none;
+// }
+// .search-container button {
+// float:left;
+// padding: 6px 10px;
+// margin-top: 8px;
+// margin-right: 16px;
+// background:#ddd;
+// font-size: 60px;
+// border: none;
+// cursor: pointer;
+// }
+// .search-container button:hover {
+// background: #ccc;
+// }
+
+// css for search
+.searchIcon{
+  border-radius: 8px;
+  width: 900px;
+  margin-left:3%;
+  outline: none;
+  border: 1px solid #f1f3f4;
+  background-color:  #f1f3f4;
+}
+.search-icon{
+  margin-top: 10px;
+}
+.search-icon,.searchInput{
+  border:0px;
+  background-color: #f1f3f4;
+}
+.search-icon,.searchInput:focus{
+outline: none;
+}
+
+

@@ -16,8 +16,8 @@ export class HttpService {
 
   }
   PostService(url: string = '', payload: any, tokenRequired: boolean = false, httpAuthOption: any) {
-    console.log(this.BaseUrl);
-    return this.http.post(this.BaseUrl + url, payload, tokenRequired && httpAuthOption);
+    // console.log(this.BaseUrl);
+    return this.http.post( url, payload, tokenRequired && httpAuthOption);
 
   }
 
@@ -38,7 +38,7 @@ export class HttpService {
 
   getService(url: string = '', tokenRequired: boolean = false, httpAuthOption: any) {
     console.log(this.BaseUrl);
-    return this.http.get(this.BaseUrl + url, tokenRequired && httpAuthOption);
+    return this.http.get( url, tokenRequired && httpAuthOption);
   }
 
   // putService( url: string='' , tokenRequired:boolean = false, httpAuthOption:any){

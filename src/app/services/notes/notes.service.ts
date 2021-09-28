@@ -16,23 +16,57 @@ export class NotesService {
   }
 
 createNotes(data:any): Observable<any>{
+  console.log(data)
   let httpAuthOption = {
     headers:new HttpHeaders({
-      'Content-Type' : 'applocation/json',
+      'Content-Type' : 'application/json',
       'Authorization': this.token
     })
   };
-  return this.httpService.PostService('notes/addNotes',data, true, httpAuthOption)
+  return this.httpService.PostService(this.BaseUrl+'notes/addNotes',data, true, httpAuthOption)
 }
 getAllNotesService(){
   let httpAuthOption = {
    
     headers:new HttpHeaders({
-      'Content-Type' : 'applocation/json',
-      Authorization: this.token
+      'Content-Type' : 'application/json',
+      'Authorization': this.token
     })
   };
-  return this.httpService.getService( 'notes/getNotesList', true,httpAuthOption)
+  return this.httpService.getService(this.BaseUrl+'notes/getNotesList', true,httpAuthOption)
+}
+UpdateNoteService(data:any){
+  let httpAuthOption = {
+   
+    headers:new HttpHeaders({
+      'Content-Type' : 'application/json',
+      'Authorization': this.token
+    })
+  };
+  return this.httpService.PostService(this.BaseUrl+'notes/updateNotes',data, true,httpAuthOption)
 
+}
+deleteNoteService(data:any){
+  let httpAuthOption = {
+   
+    headers:new HttpHeaders({
+      'Content-Type' : 'application/json',
+      'Authorization': this.token
+    })
+  };
+  return this.httpService.PostService(this.BaseUrl+'notes/deleteForeverNotes',data, true, httpAuthOption)
+
+}
+changeColorService(data:any){
+  let httpAuthOptions = {
+    headers:new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': this.token
+    })
+  };
+  console.log(data);
+  console.log(httpAuthOptions);
+  
+  return this.httpService.PostService(this.BaseUrl+'notes/changesColorNotes',data,true, httpAuthOptions);
 }
 }

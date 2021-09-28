@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatDialogModule} from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './components/registration/registration.component';
@@ -21,10 +21,19 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import { GetallnotesComponent } from './components/Dashboard/getallnotes/getallnotes.component';
-import { TakenoteComponent } from './components/Dashboard/takenote/takenote.component';
+
 import { DisplayComponent } from './components/Dashboard/display/display.component';
 import {MatCardModule} from '@angular/material/card';
 import { IconsComponent } from './components/Dashboard/icons/icons/icons.component';
+import { UpdatenoteComponent } from './components/UpdateNotes/updatenote/updatenote.component';
+import { FormsModule } from '@angular/forms';
+import { TakesnoteComponent } from './components/takesnote/takesnote/takesnote.component';
+import { AuthguardServiceService } from './services/Authguard/authguard-service.service';
+import {MatMenuModule} from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+
+
+
 
 
 @NgModule({
@@ -36,9 +45,14 @@ import { IconsComponent } from './components/Dashboard/icons/icons/icons.compone
     ResetPasswordComponent,
     DashboardComponent,
     GetallnotesComponent,
-    TakenoteComponent,
+  
     DisplayComponent,
-    IconsComponent
+    IconsComponent,
+    UpdatenoteComponent,
+    TakesnoteComponent,
+   
+   
+    
   ],
   imports: [
     BrowserModule,
@@ -55,10 +69,19 @@ import { IconsComponent } from './components/Dashboard/icons/icons/icons.compone
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    FormsModule,
+    MatMenuModule,
+    MatButtonModule 
+    
+    
+
   
   ],
-  providers: [],
+  providers: [
+    AuthguardServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

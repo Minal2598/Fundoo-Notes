@@ -9,7 +9,9 @@ export class UserService {
   token: any
   BaseUrl = environment.BaseUrl
 
-  constructor(private httpService: HttpService, ) { }
+  constructor(private httpService: HttpService ) {
+    this.token = localStorage.getItem('token')
+   }
 
   registerUser(requestdata:any){
     let httpAuthOptions = {
@@ -20,7 +22,7 @@ export class UserService {
       })
     };
     console.log(requestdata);
-    return this.httpService.PostService(this.BaseUrl +'user/userSignUp',requestdata,false, httpAuthOptions)
+    return this.httpService.PostService(this.BaseUrl+'user/userSignUp',requestdata,false, httpAuthOptions)
   }
   
   loginUser(requestdata:any){
@@ -32,7 +34,7 @@ export class UserService {
       })
     };
     console.log(requestdata);
-    return this.httpService.PostService(this.BaseUrl +'user/login',requestdata,false, httpAuthOptions)
+    return this.httpService.PostService(this.BaseUrl+'user/login',requestdata,false, httpAuthOptions)
   }
   resetpasswordUser(requestdata:any, token:any){
     let httpAuthOptions = {
@@ -43,7 +45,7 @@ export class UserService {
       })
     };
     console.log(requestdata);
-    return this.httpService.PostService(this.BaseUrl +'user/reset-password',requestdata,false, httpAuthOptions)
+    return this.httpService.PostService(this.BaseUrl+'user/reset-password',requestdata,false, httpAuthOptions)
   }
   accountrecoveryUser(requestdata:any){
     let httpAuthOptions = {
@@ -54,6 +56,6 @@ export class UserService {
       })
     };
     console.log(requestdata);
-    return this.httpService.PostService(this.BaseUrl +'user/reset',requestdata,false, httpAuthOptions)
+    return this.httpService.PostService(this.BaseUrl+'user/reset',requestdata,false, httpAuthOptions)
   }
 }

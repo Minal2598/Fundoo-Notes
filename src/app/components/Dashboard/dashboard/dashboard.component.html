@@ -1,23 +1,34 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+
     <mat-toolbar color="primary" class="example-toolbar"
         style="background-color:white; border: 2px solid rgb(221, 206, 206);">
         <button mat-icon-button (click)="snav.toggle()">
             <mat-icon>menu</mat-icon>
         </button>
+        <div>
         <img style="margin-left: 20px;" src="../../../../assets/dashboard-imgs/keep.png" alt="">
+    </div>
         <h1 class="example-app-name" style="color: black;">FundooNotes</h1>
+    
+       
+        <div class="searchIcon">
+            <button mat-icon-button class="search-icon">
+                <mat-icon matTooltip="Search">search</mat-icon>
+            </button>
 
-        <div class="search">
-            <img style="margin-left: 60px;" src="../../../../assets/dashboard-imgs/search_black_24dp.svg" alt="">
-
-            <input
-                style="width:650px; ; border: none; padding: 12px; font-size: 17px;
-            border: none; background-color: rgb(238, 238, 238); box-shadow: 0 4px 8px 0 rgba(214, 206, 206, 0.2), 0 6px 20px 0 rgba(236, 230, 230, 0.19);"
-                class="search-bar" type="text" matInput placeholder="search">
+            <input class="searchInput" placeholder="search">
         </div>
 
 
-        <div>
+
+
+        <!-- <!-- <div class="search-container">
+        <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </div> -->
+
+
+        <div> 
 
             <img style="margin-left: 90px; margin-top:15px; color: lightgrey;"
                 src="../../../../assets/dashboard-imgs/refresh_black_24dp.svg" alt="">
@@ -68,7 +79,7 @@
         </mat-sidenav>
 
         <mat-sidenav-content>
-            content aperase here
+            <!-- content aperase here -->
             <router-outlet></router-outlet>
             <!-- <p *ngFor="let content of fillerContent">{{content}}</p> -->
         </mat-sidenav-content>

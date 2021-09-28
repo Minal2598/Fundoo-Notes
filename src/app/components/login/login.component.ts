@@ -16,6 +16,9 @@ export class LoginComponent implements OnInit {
 private router:Router ) { }
 
   ngOnInit() {
+    
+  //  localStorage.setItem('SeesionUser',this.user);
+
     this.loginForm = this.formBuilder.group({
        
         email: ['', [Validators.required, Validators.email]],
@@ -34,12 +37,13 @@ private router:Router ) { }
       password:this.loginForm.value.password,
       
 
+      
     }
     console.log(request)
     this.userService.loginUser(request).subscribe((response:any)=>{
       console.log(response);
       localStorage.setItem('token',response.id)
-      this.router.navigateByUrl('/dashboard')
+      this.router.navigateByUrl('/dashboard/home')
       this.snackBar.open("Login succfully ", ' ', {
         duration: 1000,
      });

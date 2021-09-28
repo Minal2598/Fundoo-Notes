@@ -1,0 +1,38 @@
+<div fxLayoutAlign="center center" style="margin-top: 30px;">
+
+    <mat-card *ngIf="!show" (click)="onOpen()">
+      
+      <div >
+
+        <input autofocus matInput placeholder="Take a note.." type="text" />
+      
+      </div>
+    </mat-card>
+
+      <mat-card *ngIf="show">
+
+          <div fxLayout="column" fxLayoutGap="10px">
+
+              <textarea  class="title-bar" matInput placeholder="Title" [(ngModel)]="title" ></textarea>
+
+
+                <div fxLayout="column" fxLayoutGap="10px">
+
+                  <div>
+
+                    <textarea class="description-bar" matInput placeholder="Take a note..." [(ngModel)]="description"></textarea>
+
+                    </div>
+                </div>
+
+                <div fxLayout="row">
+
+                  <app-icons></app-icons>
+
+                  <button class="close" mat-button (click)="onClose()">Close</button>
+          
+                </div>
+          </div>
+      </mat-card>
+
+</div>

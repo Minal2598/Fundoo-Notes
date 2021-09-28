@@ -1,10 +1,58 @@
-<div class="main-icons" fxLayoutAlign="row" fxLayoutGap="20px">
+<!-- <div class="main-icons" fxLayoutAlign="row" fxLayoutGap="20px">
     <img src="..\assets\icons\add_alert_black_24dp.svg" alt="">
     <img src="..\assets\icons\person_add_alt_black_24dp.svg" alt="">
     <img src="..\assets\icons\color_lens_black_24dp.svg" alt="">
     <img src="..\assets\icons\insert_photo_black_24dp.svg" alt="">
-    <img src="..\assets\dashboard-nav-imgs\archive_black_24dp.svg" alt="">
+    <img  (click)="deleteNote()" src="..\assets\dashboard-nav-imgs\archive_black_24dp.svg" alt="">
     <img src="..\assets\icons\more_vert_black_24dp.svg" alt="">
-    <img src="..\assets\icons\undo_black_24dp.svg" alt="">
-    <img src="..\assets\icons\redo_black_24dp.svg" alt="">
+     <img src="..\assets\icons\undo_black_24dp.svg" alt="">
+    <img src="..\assets\icons\redo_black_24dp.svg" alt=""> 
+</div> -->
+
+<div  fxLayoutGap="20px" fxLayoutAlign="row wrap  ">  
+       
+            
+    <img src="..\assets\icons\add_alert_black_24dp (1).svg">
+
+    <img src="..\assets\icons\person_add_alt_black_24dp.svg">
+
+    <img  src="..\assets\icons\archive_black_24dp.svg">
+    
+    <!--COLOUR-->
+    <button mat-icon-button [matMenuTriggerFor]="colorMenu" >
+    <img src="..\assets\icons\palette_black_24dp.svg"></button>
+      <mat-menu #colorMenu="matMenu">
+        <div class="pop">
+            
+          <div *ngFor="let color of colors" class="colorButton">
+            <button mat-mini-fab [style.background]="color?.code" (click)="setColor(color.code)"></button>
+          </div>
+
+        </div>
+      </mat-menu>
+    
+    
+    <img src="..\assets\icons\insert_photo_black_24dp.svg">
+
+    <!--Archive & unArchive
+    <button mat-icon-button *ngIf="notecard.isArchived!==true">
+        <img  src="../assets\Icons\archive_black_24dp.svg" (click)="archiveNote()">
+    </button>
+    <button mat-icon-button *ngIf="notecard.isArchived==true">
+        <img  src="../assets\Icons\unarchive_black_24dp.svg" (click)="unArchiveNote()">
+    </button>  
+    -->          
+      
+     <!--MenuBar-->           
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <img  src="..\assets\icons\more_vert_black_24dp.svg" >
+      <mat-menu #menu="matMenu" yPosition="below">
+      <span mat-menu-item (click)="deleteNote()">Delete note
+      </span>
+      </mat-menu>
+    </button>
+    
+
+
+
 </div>
