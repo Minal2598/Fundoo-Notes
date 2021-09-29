@@ -7,9 +7,13 @@ import { NotesService } from '../../../../services/notes/notes.service';
   styleUrls: ['./icons.component.scss']
 })
 export class IconsComponent implements OnInit {
+
+  isArchived = false;
+ isDeleted = false;
   // getNotes: any;
   @Input() notecard:any;
   @Output() color: EventEmitter<any> = new EventEmitter();
+  @Output() archive: EventEmitter<any> = new EventEmitter();
 
   constructor(private notesService : NotesService,private snackBar:MatSnackBar) { }
   // @Input() notecard:any
@@ -52,8 +56,56 @@ export class IconsComponent implements OnInit {
       );
    }
 
+  //  ArchiveNote
+
+   archiveNote(){
+
+    
+
+    let data ={
+
+      noteIdList: [this.notecard.id],
+      isArchived: !this.isArchived
+    }
+
+    console.log(data);
+    this.notesService.archiveNotes(data).subscribe(
+      (response:any) => {
+        
+        console.log('archiveResponse',response);
+        this.snackBar.open('Archived','',{duration:2000,})
+      },
+      (error:any) => {
+        console.log('archive Error', error);
+        this.snackBar.open('Error occured during arcive','try Again',{duration:2000,})
+      });
+   }
+
+  //  TrashNote
+
+   trashNote(){
+
+    let data ={
+
+      noteIdList: [this.notecard.id],
+      isDeleted: !this.isDeleted
+    }
+
+    console.log(data);
+    this.notesService.trashNote(data).subscribe(
+      (response:any) => {
+        
+        console.log('deleteResponse',response);
+        this.snackBar.open('Delete','',{duration:2000,})
+      },
+      (error:any) => {
+        console.log('delete Error', error);
+        this.snackBar.open('Error occured during trashNote','try Again',{duration:2000,})
+      });
+   }
 
 
+   //delete note
   deleteNote(){
     let req = {
       noteIdList: [this.notecard.id],

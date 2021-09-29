@@ -31,6 +31,8 @@ import { TakesnoteComponent } from './components/takesnote/takesnote/takesnote.c
 import { AuthguardServiceService } from './services/Authguard/authguard-service.service';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { ArchiveComponent } from './components/Archive/archive/archive.component';
+import { TrashComponent } from './components/Trash/trash/trash.component';
 
 
 
@@ -50,6 +52,8 @@ import { MatButtonModule } from '@angular/material/button';
     IconsComponent,
     UpdatenoteComponent,
     TakesnoteComponent,
+    ArchiveComponent,
+    TrashComponent,
    
    
     

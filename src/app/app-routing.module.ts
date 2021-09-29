@@ -8,6 +8,8 @@ import { DashboardComponent } from './components/Dashboard/dashboard/dashboard.c
 import { GetallnotesComponent } from './components/Dashboard/getallnotes/getallnotes.component';
  
 import { AuthenticationGuard } from './Authguard/authentication.guard';
+import { ArchiveComponent } from './components/Archive/archive/archive.component';
+import { TrashComponent } from './components/Trash/trash/trash.component';
 
 const routes: Routes = [
   {path:'', redirectTo:"login",pathMatch:'full'},
@@ -20,8 +22,12 @@ const routes: Routes = [
   {path:'dashboard',component:DashboardComponent,
   children:[
      {path:'', redirectTo:"home",pathMatch:'full'},
+     
 
     {path:'home',component:GetallnotesComponent,canActivate:[AuthenticationGuard]},
+    {path:'archive',component:ArchiveComponent},
+    {path:'trash',component:TrashComponent}
+
     // {path:'dashboard',component: DashboardComponent}
     
   ]
