@@ -14,6 +14,9 @@ export class IconsComponent implements OnInit {
   @Input() notecard:any;
   @Output() color: EventEmitter<any> = new EventEmitter();
   @Output() archive: EventEmitter<any> = new EventEmitter();
+  @Output() unarchive: EventEmitter<any> = new EventEmitter();
+  @Input() onArchiveChange = new EventEmitter();
+ 
 
   constructor(private notesService : NotesService,private snackBar:MatSnackBar) { }
   // @Input() notecard:any
@@ -81,6 +84,32 @@ export class IconsComponent implements OnInit {
       });
    }
 
+//Unarchive
+
+   UnarchiveNote(){
+
+    
+
+    let data ={
+
+      noteIdList: [this.notecard.id],
+      isArchived: false,
+    }
+
+    console.log(data);
+    this.notesService.archiveNotes(data).subscribe(
+      (response:any) => {
+        
+        console.log('UnarchiveResponse',response);
+        this.onArchiveChange.emit();
+        this.snackBar.open('note Unarchived successfully...','',{duration:2000,})
+      },
+      (error:any) => {
+        console.log('archive Error', error);
+        this.snackBar.open('Error occured during Unarcive','try Again',{duration:2000,})
+      });
+   }
+
   //  TrashNote
 
    trashNote(){
@@ -104,8 +133,36 @@ export class IconsComponent implements OnInit {
       });
    }
 
+    //RestoreTrash
 
-   //delete note
+    trashRestore(){
+
+    
+
+      let data ={
+
+        noteIdList: [this.notecard.id],
+        isDeleted: false,
+      }
+  
+      console.log(data);
+      this.notesService.trashNote(data).subscribe(
+        (response:any) => {
+          
+          console.log('trash Response',response);
+          this.snackBar.open('Restore Successfully...','',{duration:2000,})
+        },
+        (error:any) => {
+          console.log('delete Error', error);
+          this.snackBar.open('Error occured during Restoretrash','try Again',{duration:2000,})
+        });
+     }
+  
+
+
+
+
+   //Foreverdelete note
   deleteNote(){
     let req = {
       noteIdList: [this.notecard.id],

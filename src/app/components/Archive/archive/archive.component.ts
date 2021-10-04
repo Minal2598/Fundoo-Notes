@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { NotesService } from '../../../services/notes/notes.service';
 @Component({
   selector: 'app-archive',
@@ -17,11 +18,13 @@ export class ArchiveComponent implements OnInit {
   }
 
   getAllArchive(){
-
+      
     this.notesService.getAllArchiveNote().subscribe((response:any)=>{
       console.log(response);
 
       this.NotesList = response.data.data
+     
+      
       this.NotesList.reverse()
       console.log("notelist::", this.NotesList)
       this.snackBar.open('Archived','',{duration:2000,})

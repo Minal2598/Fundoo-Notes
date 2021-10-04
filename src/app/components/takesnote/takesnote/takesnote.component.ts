@@ -49,8 +49,9 @@ export class TakesnoteComponent implements OnInit {
         console.log(error)
 
         this.SnackBar.open("Note Wasnot added !",'Try Again',{duration: 3000,});
-      }
-    );
+      });
+
+      window.location.reload();
   }
 
   

@@ -16,9 +16,13 @@
 
     <img src="..\assets\icons\person_add_alt_black_24dp.svg">
 
-    <button mat-icon-button >
-      <img  src="..\assets\icons\archive_black_24dp.svg" (click)="archiveNote()" matTooltip="Archive">
+    <button mat-icon-button  *ngIf="!notecard.isArchived" >
+      <img  src="..\assets\icons\archive_black_24dp.svg" (click)="archiveNote()"  matTooltip="Archive">
   </button>
+  <button mat-icon-button *ngIf="notecard.isArchived" >
+    <img  src="..\assets\icons\unarchive_black_24dp.svg" (click)="UnarchiveNote()" matTooltip="Unarchive">
+</button>
+
 
     
     <!--COLOUR-->
@@ -43,6 +47,8 @@
     <button mat-icon-button [matMenuTriggerFor]="menu">
       <img  src="..\assets\icons\more_vert_black_24dp.svg" >
       <mat-menu #menu="matMenu" yPosition="below">
+      
+      <span mat-menu-item (click)="trashRestore()">Restore Trash</span>
       <span mat-menu-item (click)="deleteNote()">Delete note</span>
       <span mat-menu-item (click)="trashNote()">Move to Trash</span>
       </mat-menu>

@@ -43,6 +43,10 @@ private router:Router ) { }
     this.userService.loginUser(request).subscribe((response:any)=>{
       console.log(response);
       localStorage.setItem('token',response.id)
+
+      localStorage.setItem('userId',response.userId),//to get the label userID
+
+
       this.router.navigateByUrl('/dashboard/home')
       this.snackBar.open("Login succfully ", ' ', {
         duration: 1000,

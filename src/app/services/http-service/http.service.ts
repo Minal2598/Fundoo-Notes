@@ -44,7 +44,11 @@ export class HttpService {
   // putService( url: string='' , tokenRequired:boolean = false, httpAuthOption:any){
   //   return this.http.put(url,tokenRequired && httpAuthOption);
   // }
+  deleteService(url: string = '', tokenRequired: boolean = false, httpAuthOption: any) {
+    console.log(url);
+    return this.http.delete( url, tokenRequired && httpAuthOption);
 
+  }
 
 
 }

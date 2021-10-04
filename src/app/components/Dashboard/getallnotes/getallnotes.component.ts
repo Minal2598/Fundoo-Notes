@@ -20,9 +20,11 @@ export class GetallnotesComponent implements OnInit {
   }
   getAllNotes() {
     this.notesService.getAllNotesService().subscribe((res:any) => {
-
+      let notes=[];
       console.log(res);
       this.NotesList = res.data.data
+      notes = res.data.data;
+      this.NotesList = notes.filter((data:any) => data.isArchived != true && data.isDeleted != true);
       this.NotesList.reverse()
       console.log("notelist::", this.NotesList)
     }, (err: any) => {

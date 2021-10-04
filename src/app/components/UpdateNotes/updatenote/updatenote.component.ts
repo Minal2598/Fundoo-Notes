@@ -45,7 +45,7 @@ onNoClick(): void {
         console.log(result);
         this.dialogRef.close();
     })
-
+    window.location.reload();
 
 
   }

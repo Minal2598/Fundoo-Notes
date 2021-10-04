@@ -1,38 +1,34 @@
-<div fxLayoutAlign="center center" style="margin-top: 30px;">
-
-    <mat-card *ngIf="!show" (click)="onOpen()">
-      
-      <div >
-
-        <input autofocus matInput placeholder="Take a note.." type="text" />
-      
+<div class="container" fxLayout="row" fxFlex.sm="60%" fxFlex.xs="40%">
+  <mat-card *ngIf="!show" (click)="onOpen()" class="matcard" style="height:43px;" fxLayout="row"  fxLayoutAlign="center center" Flex.sm="270px" fxFlex.xs="250px" >
+       <input matInput class="searchBar" placeholder="Take a note..."  id="takeNote" fxLayout="row" fxFlex.sm="150px" fxFlex.xs="100px"> 
+       <div  fxLayout="row" fxLayoutAlign="end end" fxFlex.sm="120px" fxFlex.xs="100px" >
+          <button mat-icon-button>
+          <!-- <mat-icon matTooltip="New List">check_box</mat-icon> -->
+          <img src="..\assets\icons\check_box_black_24dp.svg">
+          </button>
+          <button mat-icon-button>
+            <img src="..\assets\icons\brush_black_24dp.svg">
+          </button>
+          <button mat-icon-button>
+            <img src="..\assets\icons\insert_photo_black_24dp.svg">
+          </button>   
       </div>
-    </mat-card>
+  </mat-card>
 
-      <mat-card *ngIf="show">
-
-          <div fxLayout="column" fxLayoutGap="10px">
-
-              <textarea  class="title-bar" matInput placeholder="Title" [(ngModel)]="title" ></textarea>
-
-
-                <div fxLayout="column" fxLayoutGap="10px">
-
-                  <div>
-
-                    <textarea class="description-bar" matInput placeholder="Take a note..." [(ngModel)]="description"></textarea>
-
-                    </div>
-                </div>
-
-                <div fxLayout="row">
-
-                  <app-icons></app-icons>
-
-                  <button class="close" mat-button (click)="onClose()">Close</button>
-          
-                </div>
-          </div>
-      </mat-card>
-
+  <mat-card *ngIf="show" class="matcard1">
+    <!-- <br> -->
+    <div data-text="Take a Note" contenteditable="true" fxLayout="row"  fxLayoutAlign="center center">
+        <textarea id="title"  type="text" [(ngModel)]="title" matInput  id="title" class="input" placeholder="Title" ></textarea>
+        <button mat-icon-button><img src="..\assets\icons\push_pin_black_24dp.svg"></button>
+    </div>
+    <br>
+    <!-- <div data-text="Take a Note" contenteditable="true" fxLayout="row"  fxLayoutAlign="center center"> -->
+        <textarea type="text"  id="description"  [(ngModel)]="description" matInput  class="input" placeholder="Take a note..."></textarea>
+    <!-- </div> -->
+    <br>
+     <app-icons></app-icons>
+     <div class="closebtn">
+        <button  mat-button (click)="onClose()" id="close" style="margin-top: -39px;"> Close</button>
+      </div>
+</mat-card>    
 </div>

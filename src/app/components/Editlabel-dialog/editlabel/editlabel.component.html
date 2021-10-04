@@ -1,0 +1,49 @@
+<a mat-dailog-title><h3>Edit Labels</h3></a>
+<div mat-dailog-content fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px"class="container">
+
+        <div >
+        <button mat-icon-button *ngIf="show" (click)="onOpen()" style="margin-left: -20px; margin-right: 0px" class="add-button">
+        <img src="..\assets\icons\add_black_24dp.svg"></button>
+        </div>
+        <div>
+        <button mat-icon-button *ngIf="!show" (click)="onClose()" class="close-button">
+        <img src="..\assets\icons\clear_black_24dp.svg"></button>
+        </div>
+    
+        <div>
+            <textarea matInput [(ngModel)]="label"  style="border:none; outline:none;" placeholder="Create new label"></textarea>
+        </div>
+        
+        <div>
+        <button mat-icon-button *ngIf="!show" (click)="onCreate()" class="check-button">
+        <img src="..\assets\icons\check_black_24dp.svg"></button>
+        </div>
+
+</div>
+<div class="box-icons" fxLayoutAlign="row" fxLayoutAlign="start center"  *ngFor="let note of labelList" style="padding-top: 20px;">
+    <!-- <div fxLayoutAlign="space-around center"> -->
+    <div (mouseover)="pointer=true" (mouseout)="pointer=false">
+        <button mat-icon-button> 
+            <img  style="float:right" *ngIf="!pointer" src="..\assets\icons\label_black_24dp.svg">
+            <img  style="float:right" *ngIf="pointer" (click)="deleteLabel(note)" src="..\assets\icons\delete_black_24dp (1).svg">
+        </button>
+        </div>
+        <!-- <div style="width:190px;">{{note.label}}</div> -->
+        <input type="text" style="width: 188px; padding: 15px; border: none;outline: none;" [(ngModel)]="note.label">
+
+
+        <button mat-icon-button (click)="updateLabels(note)" class="check-button"> 
+            <img  style="float:right"  src="..\assets\icons\edit_black_24dp.svg"></button>
+
+
+       
+           
+     
+
+    </div>
+
+<br>
+<mat-divider></mat-divider>
+<div fxLayout="row" fxLayoutAlign="end center" >
+    <button mat-dialog-close mat-button style="padding-top:15px;">Done</button>
+</div>

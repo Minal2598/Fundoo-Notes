@@ -1,5 +1,9 @@
 import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
+import { EditlabelComponent } from '../../Editlabel-dialog/editlabel/editlabel.component';
+import { MatDialog } from '@angular/material/dialog';
+import { NotesService } from 'src/app/services/notes/notes.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 
@@ -18,8 +22,9 @@ export class DashboardComponent implements OnInit {
      '' );
 
   private _mobileQueryListener: () => void;
+  labelList: any;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,public dialog: MatDialog,private notesService:NotesService, private snackBar : MatSnackBar) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -30,6 +35,35 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getLabels()
   }
+  openEditlabels() {
+    const dialogRef = this.dialog.open(EditlabelComponent, {
+      width: '350px',
+      height:'350px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed',result);
+     
+    });
+  }
+
+ getLabels(){
+   this.notesService.getLabelsService().subscribe(
+     (response:any)=>{
+       console.log(response);
+       this.labelList = response['data'].details
+       console.log('LabelList..',this.labelList)
+
+       this.snackBar.open('labeled..','',{duration:2000,})
+     },
+     (error: any) =>{console.log(error)
+
+      this.snackBar.open('Error Occured','try Again',{duration:2000,})
+    
+    });
+
+ }
 
 }

@@ -117,4 +117,59 @@ getAllTrashNote(){
 
 }
 
+// -----------------Labels post----------------------------//
+
+createLabelsService(data:any) : Observable<any>{
+  let httpAuthOptions = {
+    headers:new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': this.token
+    })
+  };
+  console.log(httpAuthOptions); // to check the value of httpAuthOptions to get ride of an error 
+
+  return this.httpService.PostService(this.BaseUrl +'/noteLabels',data, true, httpAuthOptions);
+
+}
+// -----------------Labels get----------------------------//
+
+getLabelsService(){
+  let httpAuthOptions = {
+    headers:new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': this.token
+    })
+  };
+  console.log(httpAuthOptions);
+
+  return this.httpService.getService(this.BaseUrl+'/noteLabels/getNoteLabelList',true, httpAuthOptions);
+        
+}
+
+deleteLabelService(data:any){
+  let httpAuthOption = {
+    headers:new HttpHeaders({
+      'Content-Type' : 'application/json',
+      'Authorization': this.token
+
+    })
+  };
+  console.log("notesService data",data.labelList.id);
+  return this.httpService.deleteService(this.BaseUrl+'/noteLabels/'+data.labelList.id+'/deleteNoteLabel',data,httpAuthOption);
+
+}
+updateLabelService(data:any){
+  let httpAuthOption = {
+    headers:new HttpHeaders({
+      'Content-Type' : 'application/json',
+      'Authorization': this.token
+
+    })
+  };
+  console.log("notesService data",data.id);
+  return this.httpService.PostService(this.BaseUrl+'/noteLabels/'+data.id+'/updateNoteLabel',data,true,httpAuthOption);
+
+
+}
+
 }

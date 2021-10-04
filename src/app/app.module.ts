@@ -33,6 +33,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { ArchiveComponent } from './components/Archive/archive/archive.component';
 import { TrashComponent } from './components/Trash/trash/trash.component';
+import { LabelComponent } from './components/Label/label/label.component';
+import { EditlabelComponent } from './components/Editlabel-dialog/editlabel/editlabel.component';
 
 
 
@@ -54,6 +56,8 @@ import { TrashComponent } from './components/Trash/trash/trash.component';
     TakesnoteComponent,
     ArchiveComponent,
     TrashComponent,
+    LabelComponent,
+    EditlabelComponent,
    
    
     

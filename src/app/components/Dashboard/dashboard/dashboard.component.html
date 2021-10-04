@@ -55,9 +55,16 @@
                         <img src="..\assets\dashboard-nav-imgs\notifications_black_24dp.svg" alt="">
                         <a mat-list-item routerLink="/dashboard/reminders">Reminders</a>
                     </div>
+
+                    <div fxLayout="row" fxLayoutGap="20px" class="editIcon" *ngFor="let note of labelList">
+                    <img src="..\assets\icons\edit_black_24dp.svg" >  
+                    <a mat-list-item>{{note.label}}</a>  
+                    </div>
+
+                    <!------------------------->
                     <div  class="Reminders-icons" fxLayoutAlign="row" >
                         <img src="..\assets\dashboard-nav-imgs\edit_black_24dp.svg" alt="">
-                        <a mat-list-item routerLink="/dashboard/editlabels">Edit Labels</a>
+                        <a mat-list-item (click)="openEditlabels()" >Edit Labels</a>
                     </div>
                     <div  class="Archive-icons" fxLayoutAlign="row" >
                         <img src="..\assets\dashboard-nav-imgs\archive_black_24dp.svg" alt="">

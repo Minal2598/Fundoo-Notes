@@ -10,6 +10,11 @@ import { GetallnotesComponent } from './components/Dashboard/getallnotes/getalln
 import { AuthenticationGuard } from './Authguard/authentication.guard';
 import { ArchiveComponent } from './components/Archive/archive/archive.component';
 import { TrashComponent } from './components/Trash/trash/trash.component';
+import { DisplayComponent } from './components/Dashboard/display/display.component';
+
+import { TakesnoteComponent } from './components/takesnote/takesnote/takesnote.component';
+import { LabelComponent } from './components/Label/label/label.component';
+import { EditlabelComponent } from './components/Editlabel-dialog/editlabel/editlabel.component';
 
 const routes: Routes = [
   {path:'', redirectTo:"login",pathMatch:'full'},
@@ -20,13 +25,19 @@ const routes: Routes = [
   {path:'resetpassword/:token',component:ResetPasswordComponent},
   
   {path:'dashboard',component:DashboardComponent,
+  
   children:[
      {path:'', redirectTo:"home",pathMatch:'full'},
      
 
     {path:'home',component:GetallnotesComponent,canActivate:[AuthenticationGuard]},
-    {path:'archive',component:ArchiveComponent},
-    {path:'trash',component:TrashComponent}
+    {path:'home',component:GetallnotesComponent},
+           {path:'display',component:DisplayComponent},
+           {path:'takesnote',component:TakesnoteComponent},
+          {path:'archive',component:ArchiveComponent},
+          {path:'trash',component:TrashComponent},
+          {path:'label',component:LabelComponent},
+          {path:'editlabel',component:EditlabelComponent}
 
     // {path:'dashboard',component: DashboardComponent}
     
